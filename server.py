@@ -13,7 +13,7 @@ def index():
     json_url = os.path.join(BASE_DIR, 'data', 'osago.json')
     data = json.load(open(json_url, encoding="utf-8"))
     data = json.dumps(data, ensure_ascii=False)
-    return render_template('index.html', data=data, title='Калькулятор ОСАГО')
+    return render_template('index.html', data=data, title='Калькулятор ОЦВ/ОСАГО')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,17 +2,21 @@
  * Created by mosya on 28.07.17.
  */
 
-
 // var osago = document.getElementById('data').innerHTML.trim().toString();
 var osago = JSON.parse(data);
 console.log(osago);
 
-
-
-function insertOption(el) {
+function insertOption(el, ind) {
     var html = '';
+    var i = 0;
     for (obj in osago[el]){
-        html += '<option value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
+        if (ind == i+1){
+            html += '<option selected value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
+        }
+        else {
+            html += '<option value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
+        }
+        i++;
     }
     document.getElementById(el).innerHTML += html;
 }
@@ -60,17 +64,16 @@ function rezult(select){
     document.getElementById('rezult').innerHTML = sum;
 }
 
-
-insertOption('auto');
-insertOption('zone');
-insertOption('period');
-insertOption('bonus');
-insertOption('individual');
+insertOption('auto', 1);
+insertOption('zone', 6);
+insertOption('period', 7);
+insertOption('individual', 1);
+insertOption('bonus', 5);
 
 eventSelect('#auto');
 eventSelect('#zone');
 eventSelect('#period');
-eventSelect('#bonus');
 eventSelect('#individual');
+eventSelect('#bonus');
 
 

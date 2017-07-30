@@ -16,6 +16,8 @@
     <!--</div>-->
 
     <div class="container calc">
+        <h1>{{title}}</h1>
+
         <div class="row">
             <div class="col-md-6">
                 <div id="calc">
@@ -39,8 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="individual">Фізична чи юридична особа</label>
-                        <select id="individual" class="form-control">
-                        </select>
+                        <select id="individual" class="form-control"></select>
                     </div>
                     <div class="form-group">
                         <label for="bonus">Знижка</label>
@@ -54,8 +55,8 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Наименование</th>
-                            <th>Цена</th>
+                            <th>Назва</th>
+                            <th>Коефіцієнт</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,8 +89,6 @@
             </div>
         </div>
     </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
