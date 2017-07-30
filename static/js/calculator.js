@@ -3,9 +3,10 @@
  */
 
 
-var osago = document.getElementById('data').innerHTML.trim().toString();
-osago = JSON.parse(osago);
+// var osago = document.getElementById('data').innerHTML.trim().toString();
+var osago = JSON.parse(data);
 console.log(osago);
+
 
 
 function insertOption(el) {
