@@ -8,41 +8,68 @@ osago = JSON.parse(osago);
 console.log(osago);
 
 
-function insertAuto() {
+function insertOption(el) {
     var html = '';
-    for (obj in osago['auto']){
-        html += '<option value="' + osago['auto'][obj]['k'] + '">' + osago['auto'][obj]['title'] + '</option>';
+    for (obj in osago[el]){
+        html += '<option value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
     }
-    document.getElementById('auto').innerHTML += html;
+    document.getElementById(el).innerHTML += html;
 }
 
-function changeAuto(){
-    sum = 0;
-    zone = 1;
-    $('#zone').val('1');
-
+function change(){
     selectAuto = $('#auto option').filter(':selected').val();
-    console.log(selectAuto);
-    rezult(selectAuto);
+    selectZone = $('#zone option').filter(':selected').val();
+    selectPeirod = $('#period option').filter(':selected').val();
+    selectIndividual = $('#individual option').filter(':selected').val();
+    selectBonus = $('#bonus option').filter(':selected').val();
+    rezult({
+        auto:selectAuto,
+        zone:selectZone,
+        period:selectPeirod,
+        individual:selectIndividual,
+        bonus:selectBonus
+    });
 }
 
-function rezult(selectAuto){
+function eventSelect(el){
+    $(el).change(function () {
+       change();
+    });
+}
+
+function rezult(select){
+
     var sum,
-        base_pay = osago['base_pay'],
-        auto = selectAuto;
+    // значения по-умолчанию
+        basePay = osago['base_pay'],
+        auto = select.auto || 1,
+        zone = select.zone || 1,
+        period = select.period || 1;
+        individual = select.individual || 1;
+        bonus = select.bonus || 1;
 
-    sum = base_pay * auto;
-    console.log(base_pay, sum);
+    sum = basePay * auto * zone * period * individual * bonus;
+    console.log(basePay, auto, zone, period, individual, bonus, sum);
 
+    document.getElementById('auto_rez').innerHTML = auto;
+    document.getElementById('zone_rez').innerHTML = zone;
+    document.getElementById('period_rez').innerHTML = period;
+    document.getElementById('individual_rez').innerHTML = individual;
+    document.getElementById('bonus_rez').innerHTML = bonus;
     document.getElementById('rezult').innerHTML = sum;
 }
 
 
-insertAuto();
+insertOption('auto');
+insertOption('zone');
+insertOption('period');
+insertOption('bonus');
+insertOption('individual');
 
-$('#auto').change(function () {
-   changeAuto();
-});
-
+eventSelect('#auto');
+eventSelect('#zone');
+eventSelect('#period');
+eventSelect('#bonus');
+eventSelect('#individual');
 
 
