@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/css/main.css" >
+</head>
+<body>
+    Hello
+    <div id="data">
+        {{data}}
+    </div>
+
+    <div class="container calc">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="calc">
+                    <div class="form-group">
+                        <label for="auto">Оберіть ТЗ</label>
+                        <select id="auto" class="form-control">
+                            <option selected>Оберіть ТЗ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zone">Місце реєстрації ТЗ</label>
+                        <select id="zone" class="form-control">
+                            <option>Місце реєстрації ТЗ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="period">Період страхування</label>
+                        <select id="period" class="form-control">
+                            <option>Період страхування</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bonus">Знижка</label>
+                        <select id="bonus" class="form-control">
+                            <option>Знижка, %</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ТЗ</td>
+                            <td class="auto">-</td>
+                        </tr>
+                        <tr>
+                            <td>Місце реєстрації</td>
+                            <td class="zone">-</td>
+                        </tr>
+                        <tr>
+                            <td>Період страхування</td>
+                            <td class="period">-</td>
+                        </tr>
+                        <tr>
+                            <td>Знижка, %</td>
+                            <td class="bonus">-</td>
+                        </tr>
+                        <tr>
+                            <td>Итого</td>
+                            <td id="rezult">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../static/js/calculator.js"></script>
+</body>
+</html>
