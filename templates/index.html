@@ -8,17 +8,29 @@
     <link rel="stylesheet" href="../static/css/main.css">
     <script type="text/javascript">
         var data = '{{ data|safe }}';
+
+        /* <![CDATA[ */
+        function externalLinks() {
+        links = document.getElementsByTagName("a");
+        for (i=0; i<links.length; i++) {
+            link = links[i];
+            if (link.getAttribute("href") && link.getAttribute("rel") == "external")
+                link.target = "_blank";
+            }
+        }
+        window.onload = externalLinks;
+        /* ]]> */
     </script>
 </head>
 <body>
     <div class="container calc">
-        <h1>{{title}}</h1>
+        <h1>{{title}}<span class="header-label"> <a rel="external" href="http://zakon3.rada.gov.ua/laws/show/1961-15">Закон України про ОСЦПВВНТЗ</a></span></h1>
 
         <div class="row">
             <div class="col-md-6">
                 <div id="calc">
                     <div class="form-group">
-                        <label for="auto">Оберіть ТЗ</label>
+                        <label for="auto">Транспортний засіб</label>
                         <select id="auto" class="form-control"></select>
                     </div>
                     <div class="form-group">
@@ -34,8 +46,12 @@
                         <select id="individual" class="form-control"></select>
                     </div>
                     <div class="form-group">
-                        <label for="bonus">Знижка</label>
+                        <label for="bonus">Бонус/Малус</label>
                         <select id="bonus" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exemption">Пільга, 50%</label>
+                        <select id="exemption" class="form-control"></select>
                     </div>
                 </div>
             </div>
@@ -65,11 +81,15 @@
                             <td id="individual_rez">-</td>
                         </tr>
                         <tr>
-                            <td>Знижка, %</td>
+                            <td>Бонус/Малус</td>
                             <td id="bonus_rez">-</td>
                         </tr>
                         <tr>
-                            <td>Результат</td>
+                            <td>Пільга</td>
+                            <td id="exemption_rez">-</td>
+                        </tr>
+                        <tr>
+                            <td><b>Результат</b></td>
                             <td id="rezult">-</td>
                         </tr>
                     </tbody>
