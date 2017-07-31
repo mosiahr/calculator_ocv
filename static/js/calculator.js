@@ -36,21 +36,6 @@ $(document).ready(function() {
         }
         document.getElementById(el).innerHTML += html;
     }
-    
-    function insertExemption(el, ind) {
-        var html = '';
-        var i = 0;
-        for (obj in osago[el]) {
-            if (ind == i + 1) {
-                html += '<option selected value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
-            }
-            else {
-                html += '<option value="' + osago[el][obj]['k'] + '">' + osago[el][obj]['title'] + '</option>';
-            }
-            i++;
-        }
-        document.getElementById(el).innerHTML += html;
-    }
 
     function change() {
         selectAuto = $('#auto option').filter(':selected').val();
@@ -104,7 +89,6 @@ $(document).ready(function() {
     insertOption('period', 7);
     insertOption('individual', 1);
     insertOptionBonus('bonus', 5);
-    // insertOption('bonus', 5);
     insertOption('exemption', 2);
 
     eventSelect('#auto');
