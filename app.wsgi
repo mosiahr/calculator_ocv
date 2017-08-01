@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 
-from server import app as application
+from calculator-ocv import app as application
